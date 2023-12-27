@@ -15,9 +15,11 @@ return new class extends Migration
     {
         Schema::create('payments', function (Blueprint $table) {
             $table->id();
-            $table->index('participant_id');
+            $table->unsignedBigInteger('participant_id')->index();
             $table->decimal('amount', 9, 2);
             $table->timestamps();
+
+            $table->foreign('participant_id')->references('id')->on('participants');
         });
     }
 

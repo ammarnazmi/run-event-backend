@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('title');
             $table->text('description')->nullable();
             $table->string('image')->nullable();
-            $table->index('event_id');
+            $table->unsignedBigInteger('event_id')->index();
             $table->timestamps();
 
             $table->foreign('event_id')->references('id')->on('events');
