@@ -8,5 +8,11 @@ use Database\Factories\AdminFactory;
 
 class Admin extends Model
 {
-    use HasFactory;
+    use HasApiTokens, HasFactory;
+
+    protected $hidden = [
+        'password',
+        'remember_token',
+    ];
+
 }
